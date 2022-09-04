@@ -10,8 +10,6 @@ Future<Response> onRequest(RequestContext context) async {
 
   await db.open();
 
-  await db.createCollection("bhumit");
-
   final collection = db.collection("bhumit");
 // final pipeline = AggregationPipelineBuilder().addStage(stage);
   Map<String, dynamic> a = {"data": []};

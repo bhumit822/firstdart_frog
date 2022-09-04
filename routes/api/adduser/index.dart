@@ -41,10 +41,10 @@ Future<Response> postResponse(RequestContext context) async {
   Map<String, dynamic> data =
       jsonDecode((await (context.request.body()))) as Map<String, dynamic>;
   final collection = db.collection("bhumit");
-  // final a = await collection.insert(data, writeConcern: WriteConcern());
-  final a = await collection.insertOne(data, bypassDocumentValidation: true);
+  final a = await collection.insert(data, writeConcern: WriteConcern());
+  // final a = await collection.insertOne(data, bypassDocumentValidation: true);
   return Response.json(body: {
-    "data": a.document,
+    "data": a,
     "message": "Added new user successfuly.",
     "statusCode": 200
   }, statusCode: 200);
